@@ -4,6 +4,9 @@ A description on what each script does is provided in the sections below.
 
 All tools were mainly developed in an Windows environment. Though interoperability across operating systems has been kept in mind and should be given. If not so, please open an issue.
 
+## How to use
+You will need Python (3, but 2 might work as well). Save the script on your local machine. Open it with a text editor (or a dedicated Python editor) and change the variables for folder or file locaction. Which variables should be adapted is stated at the top documentation section of each file. Save your changes and then execute the script from your favourite CLI with `python scriptname.py`.
+
 ## chopttl.py
 Cuts up a large ttl file into smaller pieces of a maximum amout of lines. Files might get a bit longer if end of an entity was not reached yet.
 
