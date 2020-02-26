@@ -20,6 +20,9 @@ A program to extract basic information from PLY files. Currently this informatio
 A program to create folders for grouping files with similar names together. For example create a folder `038_FJB_1904-001` to group the files `038_FJB_1904-001a.tif` and `038_FJB_1904-001b.tif`
 The rule(s) to determine similarity of names is specified within a dedicated function and can be adapted to any user's needs.
 
+## metadatacrawler
+See readme inside of it.
+
 ## renameFiles.py
 A program to rename files and folders in a given folder by applying a set of renaming rules. The set of rules can be expanded, either with Python string replace operations or by using regular expressions.
 
