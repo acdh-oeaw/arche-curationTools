@@ -47,10 +47,10 @@ subcollectionsAttributes = {
 # Metadata for folders right on top of collection
 #'Drawings' for <collID>/Drawings
 #
-#'Drawings': {
-#'acdh:hasTitle-en': ['Drawings'],
+'SYENE': {
+'acdh:hasTitle-en': ['Daten zu SYENE'],
 # ...
-#}
+}
 
 
 # Metadata for deeper nested folders. Note the use of ';' to separate
@@ -83,7 +83,7 @@ subcollectionsAttributes = {
 # Metadata also applies for all files in there
 # 'folderName_;Photos' for a folder named 'Photos'
 #
-#'folderName_;Photos': {
+'folderName_;Photos': {
 #'acdh:hasPid': ['create me'],
 # ...
 #}
