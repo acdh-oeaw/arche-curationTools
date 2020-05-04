@@ -23,6 +23,11 @@ The rule(s) to determine similarity of names is specified within a dedicated fun
 ## metadatacrawler
 See readme inside of it.
 
+## metahead.py
+A script sanitizing the metahead.ttl.
+
+Currently it automatically generates missing `acdh:hasTitle` for resources of type `acdh:Person`.
+
 ## renameFiles.py
 A program to rename files and folders in a given folder by applying a set of renaming rules. The set of rules can be expanded, either with Python string replace operations or by using regular expressions.
 
