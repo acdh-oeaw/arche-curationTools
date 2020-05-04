@@ -31,7 +31,7 @@ for resource in graph[: RDF.type : URIRef('https://vocabs.acdh.oeaw.ac.at/schema
         print('more than one acdh:hasLastName and/or acdh:hasFirstName in language %s for %s' % (language, resource.identifier))
 
 # write the output
-with open('metahead.ttl.out', 'w') as f:
+with open('metahead.ttl.out', 'w', encoding='utf-8') as f:
   output = graph.serialize(format='turtle')
   f.write(output.decode('utf-8'))
 
