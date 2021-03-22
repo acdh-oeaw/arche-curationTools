@@ -20,7 +20,7 @@ collectionAttributes = {
 'acdh:hasTitle-de': '',
 'acdh:hasTitle-en': '',
 'acdh:hasAlternativeTitle-de': '',
-'acdh:hasPid': ['create me'],
+'acdh:hasPid': ['create'],
 'acdh:hasLanguage': ['https://vocabs.acdh.oeaw.ac.at/iso6393/deu'],
 'acdh:hasDescription-de': ['""Longt Text with \n linebreak""'],
 'acdh:hasContact': ['acdhi:adittrich'],
@@ -42,20 +42,20 @@ collectionAttributes = {
 'acdh:hasDepositor': ['acdhi:adittrich']
 }
 
-# Metadata for everything inside the collection
+## Metadata for everything inside the collection
 subcollectionsAttributes = {
-# Metadata for folders right on top of collection
-#'Drawings' for <collID>/Drawings
+## Metadata for folders right on top of collection
+## 'Drawings' for <collID>/Drawings
 #
-'SYENE': {
-'acdh:hasTitle-en': ['Daten zu SYENE'],
+#'SYENE': {
+#'acdh:hasTitle-en': ['Daten zu SYENE'],
 # ...
-}
+#}
 
 
-# Metadata for deeper nested folders. Note the use of ';' to separate
-# the folder from its path:
-# 'madraRiverDelta/Drawings;pottery' for MadraRiverDelta/Drawings/pottery
+## Metadata for deeper nested folders. Note the use of ';' to separate
+## the folder from its path:
+## 'madraRiverDelta/Drawings;pottery' for MadraRiverDelta/Drawings/pottery
 #
 #'madraRiverDelta/Drawings;pottery': {
 #'acdh:hasTitle-en': ['pottery'],
@@ -63,8 +63,8 @@ subcollectionsAttributes = {
 #},
 
 
-# Metadata for individual files, similar pattern as for nested folders
-# for files on upper most level: 'MadraRiverDelta;Catalogue_HUe-Su.csv'
+## Metadata for individual files, similar pattern as for nested folders
+## for files on upper most level: 'MadraRiverDelta;Catalogue_HUe-Su.csv'
 #
 #'traveldigital/Auxiliary_Files;traveldigital_persNames-termlabels.xml': {
 #'acdh:hasTitle-en': ['travel!digital term labels'],
@@ -72,19 +72,19 @@ subcollectionsAttributes = {
 #},
 
 
-# Metadata for all files in a folder. '-files' is used to mark them
+## Metadata for all files in a folder. '-files' is used to mark them
 #
 #'ODeeg/Collections/AT-Vienna-PC-files': {
-#'acdh:hasPid': ['create me'],
+#'acdh:hasPid': ['create'],
 # ...
 #}
 
-# Metadata for a folder with a specific name regardless of the containing folders (e.g. if a folder structure with repetitive elements is used)
-# Metadata also applies for all files in there
-# 'folderName_;Photos' for a folder named 'Photos'
+## Metadata for a folder with a specific name regardless of the containing folders (e.g. if a folder structure with repetitive elements is used)
+## Metadata also applies for all files in there
+## 'folderName_;Photos' for a folder named 'Photos'
 #
-'folderName_;Photos': {
-#'acdh:hasPid': ['create me'],
+#'folderName_;Photos': {
+#'acdh:hasPid': ['create'],
 # ...
 #}
 }

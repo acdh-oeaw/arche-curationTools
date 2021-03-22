@@ -14,6 +14,7 @@
 # * metalangtag to set language of metadata
 # * collectionName to set name for toplevel collection
 #
+# TODO: https://redmine.acdh.oeaw.ac.at/issues/16811
 #######################################################################
 from __future__ import unicode_literals
 
@@ -26,11 +27,15 @@ import re
 
 import metadataAttributes
 
-# list of metadata attributes that can have urls
-urlAttrList = ['acdh:hasUrl', 'acdh:relation', 'acdh:hasCategory', 'acdh:hasLicense',
-'acdh:hasRelatedDiscipline', 'acdh:hasAccessRestriction', 'acdh:hasLifeCycleStatus',
-'acdh:hasLanguage', 'acdh:hasTitleImage', 'acdh:hasTemporalCoverageIdentifier',
-'acdh:isDocumentedBy', 'acdh:isSourceOf', 'acdh:hasSource', 'acdh:hasPid']
+#TODO: make this an individual file
+# list of metadata attributes that are object properties and requiere angle brackets
+objPropList = ['acdh:hasAccessRestriction', 'acdh:hasCategory', 'acdh:hasCoverage',
+'acdh:hasActor', 'acdh:hasSpatialCoverage', 'acdh:hasIdentifier', 'acdh:hasLanguage',
+'acdh:hasLicense', 'acdh:hasLifeCycleStatus', 'acdh:hasOaiSet', 'acdh:hasRelatedDiscipline',
+'acdh:isMemberOf', 'acdh:relation', 'acdh:continues', 'acdh:documents',
+'acdh:hasRelatedCollection', 'acdh:hasRelatedProject', 'acdh:isDerivedPublication',
+'acdh:isMetadataFor', 'achd:isNewVersionOf', 'acdh:isObjectMetadataFor', 'acdh:isPartOf',
+'acdh:isSourceOf', 'acdh:isTitleImageOf']
 
 # list of files that should be ignored, such as system files like 'Thumbs.db' or '.DS_Store'
 ignoreFiles = ['Thumbs.db', '.DS_Store']
@@ -42,51 +47,51 @@ ignoreFileExtensions = []
 # TODO: make this an individual file
 # this would allow use by other applications as well
 resourceType = {
-'zip': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/collection>',
-'tif': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/image>',
+'zip':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/collection>',
+'tif':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/image>',
 'tiff': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/image>',
-'jpg': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/image>',
-'png': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/image>',
-'svg': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/image>',
-'dxf': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/image>',
-'mtl': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/3dData>',
+'jpg':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/image>',
+'png':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/image>',
+'svg':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/image>',
+'dxf':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/image>',
+'mtl':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/3dData>',
 'xyzi': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/3dData>',
-'mtl': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/3dData>',
-'obj': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/3dData>',
-'ply': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/3dData>',
-'x3d': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/3dData>',
-'pdf': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/text>',
-'txt': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/text>',
+'mtl':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/3dData>',
+'obj':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/3dData>',
+'ply':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/3dData>',
+'x3d':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/3dData>',
+'pdf':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/text>',
+'txt':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/text>',
 'html': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/text>',
-'csv': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
-'gfs': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
-'gml': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
-'tab': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
-'kml': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
+'csv':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
+'gfs':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
+'gml':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
+'tab':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
+'kml':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
 'geojson': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
-'kmz': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
-'osm': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
-'gpx': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
-'tfw': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
-'prj': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
-'xml': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
+'kmz':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
+'osm':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
+'gpx':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
+'tfw':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
+'prj':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
+'xml':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
 'tfwx': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
 'points': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
-'qpj': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
-'asc': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
-'qgs': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
+'qpj':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
+'asc':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
+'qgs':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
 'siard': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
-'cpg': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>', # long term?
-'dbf': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>', # long term?
-'sbn': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>', # long term?
-'sbx': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>', # long term?
-'shp': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>', # long term?
-'shx': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>', # long term?
-'mkv': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/audioVisual>',
+'cpg':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>', # long term?
+'dbf':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>', # long term?
+'sbn':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>', # long term?
+'sbx':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>', # long term?
+'shp':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>', # long term?
+'shx':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>', # long term?
+'mkv':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/audioVisual>',
 #'gif': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/audioVisual>', #exception for P4D
-'bib': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
-'tex': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/text>',
-'md': 'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/text>'
+'bib':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/dataset>',
+'tex':  'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/text>',
+'md':   'acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/text>'
 }
 
 def findParentName(parentCollection, parentCollectionName):
@@ -156,14 +161,15 @@ def isoDate(date):
 def extractValue(value, attrVal, attrLang, ttlList):
     """
     Helper for getAttributes. It decides which characters are added to the value.
-    For strings: ""; for URIs: <>; for language tags: ""@<lang>
+    For data properties: ""; for object properties: <>; for language tags: ""@<lang>
     """
     if 'acdhi:' in value:
         ttlList.append(' '.join([attrVal, value]))
-    elif attrVal in urlAttrList:
-        # for automatic creation of hasPID the value has to be a string
-        if value == 'create me':
-            ttlList.append(' "'.join([attrVal, value])+'"')
+    elif attrVal in objPropList:
+# not needed anymore
+#        # for automatic creation of hasPID the value has to be a string
+#        if value == 'create':
+#            ttlList.append(' "'.join([attrVal, value])+'"')
         else:
             ttlList.append(' <'.join([attrVal, value])+'>')
     elif len(attrLang) > 0 :

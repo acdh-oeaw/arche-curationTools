@@ -1,3 +1,19 @@
+# -*- coding: utf8 -*-
+# Filename: metahead.py
+#
+########################################################################
+# This is a program to help in removing errors in
+# the metahead.ttl file that mostly contains information
+# about persons, organisations, places and publications.
+#
+# Currently missing acdh:hasTitle for resources of type acdh:Person
+# are created.
+#
+# Filename has to be 'metahead.ttl'.
+# Location must be at same place as this script.
+#
+########################################################################
+
 from rdflib import Graph, URIRef, Literal
 from rdflib.namespace import RDF
 
@@ -34,4 +50,3 @@ for resource in graph[: RDF.type : URIRef('https://vocabs.acdh.oeaw.ac.at/schema
 with open('metahead.ttl.out', 'w', encoding='utf-8') as f:
   output = graph.serialize(format='turtle')
   f.write(output.decode('utf-8'))
-

@@ -1,7 +1,7 @@
 @prefix acdh: <https://vocabs.acdh.oeaw.ac.at/schema#>.
 @prefix acdhi: <https://id.acdh.oeaw.ac.at/>.
 
-_:image a acdh:Image;
+_:titleimage a acdh:Resource;
     acdh:hasIdentifier  acdhi:someidentifier;
     acdh:hasTitle "Bla"@de;
     acdh:Owner acdhi:acdh;
@@ -20,8 +20,8 @@ _:place0 a acdh:Place;
 # person with a lot of information
 _:p01 a acdh:Person;
     acdh:hasIdentifier acdhi:uczeitschner;
-    acdh:hasLastName "Czeitschner";
-    acdh:hasFirstName "Ulrike";
+    acdh:hasLastName "Czeitschner"@und;
+    acdh:hasFirstName "Ulrike"@und;
     acdh:hasPersonalTitle "Mag.";
     acdh:isMemberOf acdhi:acdh;
     acdh:hasEmail "Ulrike.Czeitschner@oeaw.ac.at";
@@ -36,8 +36,8 @@ _:p01 a acdh:Person;
 # person with much less information (still possible)
 _:p05 a acdh:Person;
     acdh:hasIdentifier acdhi:llanig;
-    acdh:hasLastName "Lanig";
-    acdh:hasFirstName "Laura".
+    acdh:hasLastName "Lanig"@und;
+    acdh:hasFirstName "Laura"@und.
 
 _:o01 a acdh:Organisation;
   	acdh:hasIdentifier acdhi:mairdumont;
@@ -76,3 +76,4 @@ _:pub06 a acdh:Publication;
     acdh:hasPublisher "Horizon Research Publishing (HRPUB)".
 
 #TODO add Project
+#TODO cross check properties with ontology V2
