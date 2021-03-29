@@ -15,6 +15,9 @@
 # * collectionName to set name for toplevel collection
 #
 # TODO: https://redmine.acdh.oeaw.ac.at/issues/16811
+# TODO: use TopCollection
+# TODO: langTags
+# TODO: PID for public resources & for TopCollection
 #######################################################################
 from __future__ import unicode_literals
 
@@ -170,8 +173,8 @@ def extractValue(value, attrVal, attrLang, ttlList):
 #        # for automatic creation of hasPID the value has to be a string
 #        if value == 'create':
 #            ttlList.append(' "'.join([attrVal, value])+'"')
-        else:
-            ttlList.append(' <'.join([attrVal, value])+'>')
+#        else:
+        ttlList.append(' <'.join([attrVal, value])+'>')
     elif len(attrLang) > 0 :
         ttlList.append('"@'.join([' "'.join([attrVal, value]), attrLang]))
     else:
@@ -238,7 +241,7 @@ if __name__=="__main__":
     # set language of metadata
     metalangtag = '@de'
     # set name for toplevel collection (can be different from title)
-    collectionName = u'dial'
+    collectionName = u'rti-nubianpottery'
     idPart = u'https://id.acdh.oeaw.ac.at/'
 
     # scan full directory and create list with files and list with
@@ -257,7 +260,7 @@ if __name__=="__main__":
     outFile1 = open('filelist.csv','wb')
     for line in fileDirList:
         writeLine = line.decode('utf-8')
-        outFile1.write((writeLine+'\n').encode('utf-8'))
+        outFile1.write((writeLine+'\nrti-nubianpottery').encode('utf-8'))
     outFile1.close()
 
     # write file with list of directories
