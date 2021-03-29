@@ -1,0 +1,48 @@
+file-extension;ARCHE-category;name;PRONOM-ID;MIME-type;Informal-MIME-type;Magic-number;IANA-template;IANA-reference;Further-specifications;Long-term-format;ARCHE-docs;comment
+asc;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;;;
+bib;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;;;
+cpg;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;unsure;;
+csv;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;Comma-Separated Values;x-fmt/18;text/csv;;;https://www.iana.org/assignments/media-types/text/csv;RFC4180:https://tools.ietf.org/html/rfc4180 , RFC7111:https://tools.ietf.org/html/rfc7111;;yes;;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset/tabular
+dbf;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;dBase database file;X-fmt/8, x-fmt/9, x-fmt/10, x-fmt/271, x-fmt/272;;application/dbase, application/x-dbase, application/x-dbf, application/dbf;;;;;no;;If pure database use another format (e.g. sql).
+dbf;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;dBase database file;;application/vnd.dbf;;;https://www.iana.org/assignments/media-types/application/vnd.dbf;;https://www.esri.com/library/whitepapers/pdfs/shapefile.pdf , https://en.wikipedia.org/wiki/Shapefile;restricted;;Probably file comes in conjunction with a shapefile and is one of three mandatory files used by the shapefile data format. It is used in the specification of the Esri shapefile format with the Esri ArcInfo geographic information system, where a DBF file serves as a storage for various geometrical shape attributes Format is dBase IV.
+dxf;https://vocabs.acdh.oeaw.ac.at/archecategory/image;;;;;;;;;;;
+geojson;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;GeoJSON;;application/geo+json;application/vnd.geo+json;;https://www.iana.org/assignments/media-types/application/geo+json;;https://tools.ietf.org/html/rfc7946 , http://geojson.org/;yes;;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset/geojson
+gfs;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;;;
+gif;https://vocabs.acdh.oeaw.ac.at/archecategory/audioVisual;;;;;;;;;restricted;;
+gml;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;;;
+gpx;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;;;
+html;https://vocabs.acdh.oeaw.ac.at/archecategory/text;;;;;;;;;;;https://vocabs.acdh.oeaw.ac.at/archecategory/text/html
+jpg;https://vocabs.acdh.oeaw.ac.at/archecategory/image;;;;;;;;;restricted;;
+kml;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;;;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset/kml
+kmz;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;;;
+markdown;https://vocabs.acdh.oeaw.ac.at/archecategory/text;markdown;;text/markdown;;;https://www.iana.org/assignments/media-types/text/markdown;https://tools.ietf.org/html/rfc7763;;yes;;https://vocabs.acdh.oeaw.ac.at/archecategory/text/markdown
+md;https://vocabs.acdh.oeaw.ac.at/archecategory/text;markdown;;text/markdown;;;https://www.iana.org/assignments/media-types/text/markdown;https://tools.ietf.org/html/rfc7763;;yes;;https://vocabs.acdh.oeaw.ac.at/archecategory/text/markdown
+mkv;https://vocabs.acdh.oeaw.ac.at/archecategory/audioVisual;;;;;;;;;;;
+mtl;https://vocabs.acdh.oeaw.ac.at/archecategory/3dData;;;;;;;;;;;
+mtl;https://vocabs.acdh.oeaw.ac.at/archecategory/3dData;;;;;;;;;;;
+obj;https://vocabs.acdh.oeaw.ac.at/archecategory/3dData;;;;;;;;;;;
+osm;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;;;
+pdf;https://vocabs.acdh.oeaw.ac.at/archecategory/text;;;;;;;;;;;https://vocabs.acdh.oeaw.ac.at/archecategory/text/pdf
+ply;https://vocabs.acdh.oeaw.ac.at/archecategory/3dData;Polygon File Format, Stanford Triangle Format;fmt/831;application/octet-stream, text/plain;;ply;;;http://paulbourke.net/dataformats/ply/;yes;;Two variants exist: pure ascii ply and more compact binary ply
+png;https://vocabs.acdh.oeaw.ac.at/archecategory/image;;;;;;;;;;;
+points;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;;;
+prj;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;;;
+qgs;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;;;
+qpj;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;;;
+sbn;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;unsure;;
+sbx;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;unsure;;
+shp;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;unsure;;
+shx;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;unsure;;
+siard;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;;;
+svg;https://vocabs.acdh.oeaw.ac.at/archecategory/image;;;;;;;;;;;
+tab;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;;;
+tex;https://vocabs.acdh.oeaw.ac.at/archecategory/text;;;;;;;;;;;
+tfw;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;;;
+tfwx;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;;;
+tif;https://vocabs.acdh.oeaw.ac.at/archecategory/image;;;;;;;;;;;
+tiff;https://vocabs.acdh.oeaw.ac.at/archecategory/image;;;;;;;;;;;
+txt;https://vocabs.acdh.oeaw.ac.at/archecategory/text;;;;;;;;;;;
+x3d;https://vocabs.acdh.oeaw.ac.at/archecategory/3dData;;;;;;;;;;;
+xml;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset;;;;;;;;;;;https://vocabs.acdh.oeaw.ac.at/archecategory/dataset/xml,
+xyzi;https://vocabs.acdh.oeaw.ac.at/archecategory/3dData;;;;;;;;;;;
+zip;https://vocabs.acdh.oeaw.ac.at/archecategory/collection;;;;;;;;;;;
