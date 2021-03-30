@@ -1,4 +1,4 @@
-# curationTools
+# arche-curationTools
 A collection of scripts and tools for curation of data. Used e.g. for ARCHE
 A description on what each script does is provided in the sections below.
 
