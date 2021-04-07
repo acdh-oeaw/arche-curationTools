@@ -275,6 +275,7 @@ if __name__=="__main__":
     with open(ttlHeader, encoding='utf-8') as file:
         ttlHead = file.read()
 
+    topCollClass = '  a  acdh:TopCollection;'
     collClass = '  a  acdh:Collection;'
 
     # first create toplevel collection
@@ -286,7 +287,7 @@ if __name__=="__main__":
     ttlCollection.write(ttlHead.encode())
     ttlCollection.write('\n\n###############################################'
                         '\n############    metahead.ttl end    ############\n')
-    ttlCollection.write(('\n'+'<'+idPart+collectionName+'>'+collClass+'\n').encode())
+    ttlCollection.write(('\n'+'<'+idPart+collectionName+'>'+topCollClass+'\n').encode())
 
     writeAttributes(ttlTopCollection, ttlCollection)
 
@@ -323,7 +324,7 @@ if __name__=="__main__":
         parentCollectionName = normaliseName(parentCollectionName)
 
         # write into ttl file
-        # print ('Parent: '+parentCollectionName)
+        # print ('Parent: '+parentCollectionName)https://redmine.acdh.oeaw.ac.at/projects/arche-curation/wiki/Metadata_Guide
         ttlCollection.write(('<'+idPart+parentCollectionName).encode())
         ttlCollection.write(('/'+subCollectionName+'>'+collClass+'\n').encode())
         ttlCollection.write(('    acdh:isPartOf '+'<'+idPart+parentCollectionName+'>'+';\n').encode())
