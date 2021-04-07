@@ -260,7 +260,7 @@ if __name__=="__main__":
     outFile1 = open('filelist.csv','wb')
     for line in fileDirList:
         writeLine = line.decode('utf-8')
-        outFile1.write((writeLine+'\nrti-nubianpottery').encode('utf-8'))
+        outFile1.write((writeLine+'\n').encode('utf-8'))
     outFile1.close()
 
     # write file with list of directories
@@ -284,6 +284,8 @@ if __name__=="__main__":
 
     ttlCollection = open(collectionName.lower()+'_collection.ttl', 'wb')
     ttlCollection.write(ttlHead.encode())
+    ttlCollection.write('\n\n###############################################'
+                        '\n############    metahead.ttl end    ############\n')
     ttlCollection.write(('\n'+'<'+idPart+collectionName+'>'+collClass+'\n').encode())
 
     writeAttributes(ttlTopCollection, ttlCollection)

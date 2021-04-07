@@ -6,22 +6,21 @@ A curated and growing list of file extensions. For each file extension mappings 
 
 Further information is provided as well.
 
-* ARCHE-category": "https://vocabs.acdh.oeaw.ac.at/archecategory/dataset",
 * name: Name(s) the format is known
-* PRONOM-ID: ID(s) assigned by [PRONOM](http://www.nationalarchives.gov.uk/PRONOM/Default.aspx)
-* MIME-type: Official Media Type(s) (formerly known as MIME types) registered at [IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).
-* Informal-MIME-type: Other MIME types kown for the format
-* Magic-number: A constant numerical or text value used to identify a file format, e.g. [Wikipedia list of file signatures](https://en.wikipedia.org/wiki/List_of_file_signatures)
-* IANA-template: Link to template at IANA
-* IANA-reference: Link(s) to format specifications referenced by IANA
-* Further-specifications: Link(s) to other locations with specification
-* Long-term-format: Indicates if a format is suitable for long-term preservation.
+* archeCategory": "https://vocabs.acdh.oeaw.ac.at/archecategory/dataset",
+* pronomID: ID(s) assigned by [PRONOM](http://www.nationalarchives.gov.uk/PRONOM/Default.aspx)
+* mimeType: Official Media Type(s) (formerly known as MIME types) registered at [IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).
+* informalMimeType: Other MIME types kown for the format
+* magicNumber: A constant numerical or text value used to identify a file format, e.g. [Wikipedia list of file signatures](https://en.wikipedia.org/wiki/List_of_file_signatures)
+* ianaTemplate: Link to template at IANA
+* references: Link(s) to format specifications referenced by IANA and others
+* longTerm: Indicates if a format is suitable for long-term preservation.
  * Possible values and their meaning
    * yes - long-term format
    * no - not suitable, another format should be used
    * restricted - can be used for long-term preservation in some cases (see comment)
    * unsure - status remains to be evaluated
-* ARCHE-docs: Link to a place with more information for the format.
+* archeDocs: Link to a place with more information for the format.
 * comment: Any other noteworthy information not stated elsewhere.
 
 
