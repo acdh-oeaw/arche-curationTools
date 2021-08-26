@@ -15,7 +15,6 @@
 # * collectionName to set name for toplevel collection
 #
 # TODO: https://redmine.acdh.oeaw.ac.at/issues/16811
-# TODO: use TopCollection
 # TODO: langTags
 # TODO: PID for public resources & for TopCollection
 #######################################################################
@@ -31,14 +30,15 @@ import re
 import metadataAttributes
 
 #TODO: make this an individual file
-# list of metadata attributes that are object properties and requiere angle brackets
-objPropList = ['acdh:hasAccessRestriction', 'acdh:hasCategory', 'acdh:hasCoverage',
-'acdh:hasActor', 'acdh:hasSpatialCoverage', 'acdh:hasIdentifier', 'acdh:hasLanguage',
-'acdh:hasLicense', 'acdh:hasLifeCycleStatus', 'acdh:hasOaiSet', 'acdh:hasRelatedDiscipline',
-'acdh:isMemberOf', 'acdh:relation', 'acdh:continues', 'acdh:documents',
-'acdh:hasRelatedCollection', 'acdh:hasRelatedProject', 'acdh:isDerivedPublication',
-'acdh:isMetadataFor', 'achd:isNewVersionOf', 'acdh:isObjectMetadataFor', 'acdh:isPartOf',
-'acdh:isSourceOf', 'acdh:isTitleImageOf']
+# list of metadata attributes that are object properties (point to stuff in ARCHE)
+# and requiere angle brackets around URIs
+urlAttrList = ['acdh:isMemberOf', 'acdh:hasLanguage', 'acdh:hasLifeCycleStatus', 'acdh:hasCategory', 'acdh:hasPrincipalInvestigator', 
+'acdh:hasContact', 'acdh:hasCreator', 'acdh:hasAuthor', 'acdh:hasEditor', 'acdh:hasContributor', 'acdh:hasDigitisingAgent',
+'acdh:hasPublisher', 'acdh:hasFunder', 'acdh:hasMetadataCreator', 'acdh:hasRelatedDiscipline', 'acdh:hasActor', 'acdh:hasSpatialCoverage',
+'acdh:hasOwner', 'hasRightsHolder', 'acdh:hasLicensor', 'acdh:hasLicense', 'acdh:hasAccessRestriction', 'acdh:relation',
+'acdh:hasRelatedProject', 'acdh:hasRelatedCollection', 'acdh:isTitleImageOf', 'acdh:continues', 'acdh:documents', 'acdh:isDerivedPublicationOf',
+'acdh:isMetadataFor', 'acdh:isObjectMetadataFor', 'acdh:isSourceOf', 'acdh:isNewVersionOf', 'acdh:isPartOf', 'acdh:hasOaiSet',
+'acdh:hasDepositor', 'acdh:hasCurator', 'acdh:hasHosting']
 
 # list of files that should be ignored, such as system files like 'Thumbs.db' or '.DS_Store'
 ignoreFiles = ['Thumbs.db', '.DS_Store']
