@@ -32,13 +32,13 @@ import metadataAttributes
 #TODO: make this an individual file
 # list of metadata attributes that are object properties (point to stuff in ARCHE)
 # and requiere angle brackets around URIs
-urlAttrList = ['acdh:isMemberOf', 'acdh:hasLanguage', 'acdh:hasLifeCycleStatus', 'acdh:hasCategory', 'acdh:hasPrincipalInvestigator', 
-'acdh:hasContact', 'acdh:hasCreator', 'acdh:hasAuthor', 'acdh:hasEditor', 'acdh:hasContributor', 'acdh:hasDigitisingAgent',
-'acdh:hasPublisher', 'acdh:hasFunder', 'acdh:hasMetadataCreator', 'acdh:hasRelatedDiscipline', 'acdh:hasActor', 'acdh:hasSpatialCoverage',
-'acdh:hasOwner', 'hasRightsHolder', 'acdh:hasLicensor', 'acdh:hasLicense', 'acdh:hasAccessRestriction', 'acdh:relation',
-'acdh:hasRelatedProject', 'acdh:hasRelatedCollection', 'acdh:isTitleImageOf', 'acdh:continues', 'acdh:documents', 'acdh:isDerivedPublicationOf',
-'acdh:isMetadataFor', 'acdh:isObjectMetadataFor', 'acdh:isSourceOf', 'acdh:isNewVersionOf', 'acdh:isPartOf', 'acdh:hasOaiSet',
-'acdh:hasDepositor', 'acdh:hasCurator', 'acdh:hasHosting']
+urlAttrList = ['acdh:hasIdentifier', 'acdh:isMemberOf', 'acdh:hasLanguage', 'acdh:hasLifeCycleStatus', 'acdh:hasCategory',
+'acdh:hasPrincipalInvestigator', 'acdh:hasContact', 'acdh:hasCreator', 'acdh:hasAuthor', 'acdh:hasEditor', 'acdh:hasContributor',
+'acdh:hasDigitisingAgent', 'acdh:hasPublisher', 'acdh:hasFunder', 'acdh:hasMetadataCreator', 'acdh:hasRelatedDiscipline', 'acdh:hasActor',
+ 'acdh:hasSpatialCoverage', 'acdh:hasOwner', 'hasRightsHolder', 'acdh:hasLicensor', 'acdh:hasLicense', 'acdh:hasAccessRestriction',
+'acdh:relation', 'acdh:hasRelatedProject', 'acdh:hasRelatedCollection', 'acdh:isTitleImageOf', 'acdh:continues', 'acdh:documents',
+'acdh:isDerivedPublicationOf', 'acdh:isMetadataFor', 'acdh:isObjectMetadataFor', 'acdh:isSourceOf', 'acdh:isNewVersionOf', 'acdh:isPartOf',
+'acdh:hasOaiSet', 'acdh:hasDepositor', 'acdh:hasCurator', 'acdh:hasHosting']
 
 # list of files that should be ignored, such as system files like 'Thumbs.db' or '.DS_Store'
 ignoreFiles = ['Thumbs.db', '.DS_Store']
