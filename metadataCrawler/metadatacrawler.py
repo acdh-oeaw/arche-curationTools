@@ -32,7 +32,7 @@ import metadataAttributes
 #TODO: make this an individual file
 # list of metadata attributes that are object properties (point to stuff in ARCHE)
 # and requiere angle brackets around URIs
-urlAttrList = ['acdh:hasIdentifier', 'acdh:isMemberOf', 'acdh:hasLanguage', 'acdh:hasLifeCycleStatus', 'acdh:hasCategory',
+objPropList = ['acdh:hasIdentifier', 'acdh:isMemberOf', 'acdh:hasLanguage', 'acdh:hasLifeCycleStatus', 'acdh:hasCategory',
 'acdh:hasPrincipalInvestigator', 'acdh:hasContact', 'acdh:hasCreator', 'acdh:hasAuthor', 'acdh:hasEditor', 'acdh:hasContributor',
 'acdh:hasDigitisingAgent', 'acdh:hasPublisher', 'acdh:hasFunder', 'acdh:hasMetadataCreator', 'acdh:hasRelatedDiscipline', 'acdh:hasActor',
  'acdh:hasSpatialCoverage', 'acdh:hasOwner', 'hasRightsHolder', 'acdh:hasLicensor', 'acdh:hasLicense', 'acdh:hasAccessRestriction',
@@ -284,10 +284,10 @@ if __name__=="__main__":
     ttlTopCollection, titleVal = getAttributes(ttlTopCollection, metadataAttributes.collectionAttributes)
 
     ttlCollection = open(collectionName.lower()+'_collection.ttl', 'wb')
-    ttlCollection.write(ttlHead.encode())
-    ttlCollection.write('\n\n###############################################'
-                        '\n############    metahead.ttl end    ############\n')
-    ttlCollection.write(('\n'+'<'+idPart+collectionName+'>'+topCollClass+'\n').encode())
+    ttlCollection.write(ttlHead.encode('utf-8'))
+    ttlCollection.write(('\n\n###############################################'
+                        '\n############    metahead.ttl end    ############\n').encode('utf-8'))
+    ttlCollection.write(('\n'+'<'+idPart+collectionName+'>'+topCollClass+'\n').encode('utf-8'))
 
     writeAttributes(ttlTopCollection, ttlCollection)
 
