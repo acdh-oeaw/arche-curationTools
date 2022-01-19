@@ -41,7 +41,7 @@ objPropList = ['acdh:hasIdentifier', 'acdh:isMemberOf', 'acdh:hasLanguage', 'acd
 'acdh:hasOaiSet', 'acdh:hasDepositor', 'acdh:hasCurator', 'acdh:hasHosting']
 
 # list of files that should be ignored, such as system files like 'Thumbs.db' or '.DS_Store'
-ignoreFiles = ['Thumbs.db', '.DS_Store']
+ignoreFiles = ['Thumbs.db', '.DS_Store', '._.DS_Store']
 
 # list of file formats that should be ignored, for example add 'xlsx'
 ignoreFileExtensions = []
