@@ -174,7 +174,8 @@ if __name__=="__main__":
         print('No errors in renaming.')
     else:
         print('Some files could not be renamed. Manual action is required.')
-        print(exceptedFiles.join('\n'))
+        str_exceptedFiles = [x.decode('utf-8') for x in exceptedFiles]
+        print('\n'.join(str_exceptedFiles))
 
     print('Creating file and directory list with new names')
     # write file with list of files and new names
