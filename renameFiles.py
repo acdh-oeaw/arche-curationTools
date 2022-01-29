@@ -140,20 +140,20 @@ if __name__=="__main__":
             print('Normalised "', origFileName.decode('utf-8'), '" to ', newFile)
             if newFilePath in decoded_fileDirList:
                 print('The file could not be renamed, adding a suffix because a file with the same name already exists!')
-                if rename == 'true':
-                    newFile_1, newFile_2 = os.path.splitext(newFile)
-                    os.rename(newFilePath, os.path.join(oldPath.decode('utf-8'), newFile_1 + '_var01' + newFile_2))
-                    os.rename(file, os.path.join(oldPath.decode('utf-8'), newFile_1 + '_var02' + newFile_2))
                 exceptedFiles.append(file)
-                continue
 
         # rename file if rename was set to true
         # collect files that cannot be renamed due to file name duplication
-        if rename == 'true':
-            try:
-                os.rename(file, newFilePath)
-            except FileExistsError:
-                continue
+            if rename == 'true':
+                if newFilePath in decoded_fileDirList:
+                    newFile_1, newFile_2 = os.path.splitext(newFile)
+                    os.rename(newFilePath, os.path.join(oldPath.decode('utf-8'), newFile_1 + '_var01' + newFile_2))
+                    os.rename(file, os.path.join(oldPath.decode('utf-8'), newFile_1 + '_var02' + newFile_2))
+                else:
+                    try:
+                        os.rename(file, newFilePath)
+                    except FileExistsError:
+                        continue
 
     # rename directories, starting from within, i.e. reverse order of dirList
     dirCounter = 0
