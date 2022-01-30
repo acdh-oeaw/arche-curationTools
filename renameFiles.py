@@ -141,14 +141,15 @@ if __name__=="__main__":
             if newFilePath in decoded_fileDirList:
                 print('The file could not be renamed, because a file with the same name already exists!')
                 exceptedFiles.append(file)
+            else:
 
         # rename file if rename was set to true
         # collect files that cannot be renamed due to file name duplication
-        if rename == 'true':
-            try:
-                os.rename(file, newFilePath)
-            except FileExistsError:
-                continue
+                if rename == 'true':
+                    try:
+                        os.rename(file, newFilePath)
+                    except FileExistsError:
+                        continue
 
     # rename directories, starting from within, i.e. reverse order of dirList
     dirCounter = 0
