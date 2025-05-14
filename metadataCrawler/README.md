@@ -1,3 +1,7 @@
+# Deprecation notice
+
+This script has been deprecated in favor of the https://github.com/acdh-oeaw/arche-metadata-crawler.
+
 # metadataCrawler
 A script (metadatacrawler.py) to create metadata for a given folder and its contents. It is accompanied by metadataAttributes.py and metahead.ttl
 
