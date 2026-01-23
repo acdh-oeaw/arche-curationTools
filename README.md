@@ -32,6 +32,29 @@ Usage on the cluster:
 Local usage - if you are a hacker, you will figure it out based on the instructions above. If not, do not run it locally.
 (hint - you need gdal and exiftool binaries installed and in your PATH)
 
+## goobi_mets_extract.php
+
+Extracts ARCHE metadata from a Goobi METS/MODS metadata export provided by the Pfaﬀenberg Archiv.
+
+When we have examples of Goobi METS/MODS metadata exports from other sources, we can make it work with them as well.
+
+Usage on the cluster:
+
+* Login to the arche-ingestion environment on the cluster (see [here](https://github.com/acdh-oeaw/arche-ingest/blob/master/docs/acdh-cluster.md)).
+* Run `screen -S myCompressionSessionName`
+* Run
+  ```bash
+  /ARCHE/curationTools/goobi_mets_extract.php mappingFile.csv goobiModsMetsMetaFile.xml output.trig acdhIdUriOfExtractedCollection
+  ```
+  * For the first run the mapping file may not exist - it will be created and filled in with spotted Goobi metadata property paths.
+    Of course you should then open the mapping file, adjust the mapping and rerun the script.
+  * If you are reusing the mapping file to process multiple Goobi METS/MODS metadata exports (which is probably the way you should do it,
+    at least for exports from a single depositor) and any new Goobi metadata property paths are spotted in the just-processed Goobi
+    METS/MODS export, then they are added to the mapping file. In such a case you should again edit the mapping file, provide desired
+    ARCHE metadata property mappings and rerun the script.
+  * If you want a given Goobi METS/MODS metadata property path not to be mapped to any ARCHE metadata property, set the `arche` column
+    to an empty value in the mapping file.
+
 ## chopttl.py
 
 Cuts up a large ttl file into smaller pieces of a maximum amout of lines. Files might get a bit longer if end of an entity was not reached yet.
