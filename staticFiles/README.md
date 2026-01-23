@@ -2,6 +2,9 @@
 A collection of static files to be re-used in e.g. the ARCHE about pages, the metadataCrawler or other ARCHE libraries.
 
 ## Formats
+
+**Deprecation notice - this file has been moved and is now curated [in the arche-assets repository](https://github.com/acdh-oeaw/arche-assets/blob/master/AcdhArcheAssets/formats.json)**
+
 A curated and growing list of file extensions. For each file extension mappings to the respective [ARCHE Resource Type Category]( 	https://vocabs.acdh.oeaw.ac.at/archecategory/Schema) (stored in `acdh:hasCategory`) and [Media Type (MIME type)](https://www.iana.org/assignments/media-types/media-types.xhtml) (stored in `acdh:hasFormat`) are given. The indicated Media Type should only be used as a fallback; it is best practice to rely on automated Media Type detection based on file signatures.
 
 Further information is provided as well.
