@@ -1,0 +1,57 @@
+Steps in OpenRefine to transform metadata provided in spreadsheets into something resembling a Python dictionary
+
+Open spreadsheet:
+run OpenRefine
+open the spreadsheet
+Worksheets to Import: only select the first (Resource), uncheck "Listen"
+check 'Ignore firs' and set to 3 lines
+check 'Parse next' 1 lines as column headers
+uncheck 'Store blank rows' 
+uncheck 'Store blank cells as nulls'
+
+Remove unneeded columns and empty rows:
+click on 'Undo / Redo' (left side) and click on 'Apply'
+paste the content of 'openrefine-actions.txt' into the window 
+check if the numbers of the columns to be removed acutally correlate with the ones you want to delete
+check also for rows (especially when table was edited (e.g. columns removed) this has to be done with care) 
+then click on 'Perform Operations'
+
+Export data:
+click on 'Export' > 'Templating...'
+
+Settings:
+Prefix
+collectionAttributes = {
+
+Row Template:
+'acdh:{{cells["Column2"].value}}': ['{{cells["Column 6"].value}}']
+
+or with multiple:
+'acdh:{{cells["Column2"].value}}': ['{{cells["Column4"].value}}','{{cells["Column 5"].value}}']
+
+or:
+'acdh:{{(cells["Column2"].value)}}': ['{{(cells["Column 6"].value)}}', '{{(cells["Column 7"].value)}}', '{{(cells["Column 8"].value)}}', '{{(cells["Column 9"].value)}}', '{{(cells["Column 10"].value)}}', '{{(cells["Column 11"].value)}}', '{{(cells["Column 12"].value)}}', '{{(cells["Column 13"].value)}}']
+
+Row Separator
+,
+
+Suffix
+}
+root@arche-ingestion-68f5b7b765-km6jc:/ARCHE/curationTools# cat openRefine-Template.txt 
+Prefix
+collectionAttributes = {
+
+Row
+'acdh:{{cells["Column2"].value}}': ['{{cells["Column 6"].value}}']
+'acdh:{{(cells["Column2"].value)}}': ['{{(cells["Column 6"].value)}}', '{{(cells["Column 7"].value)}}', '{{(cells["Column 8"].value)}}', '{{(cells["Column 9"].value)}}', '{{(cells["Column 10"].value)}}', '{{(cells["Column 11"].value)}}', '{{(cells["Column 12"].value)}}', '{{(cells["Column 13"].value)}}']
+
+Row Separator
+,
+
+Suffix
+}
+
+
+
+https://schoolofdata.org/2013/07/26/using-openrefine-to-clean-multiple-documents-in-the-same-way/
+

@@ -1,0 +1,135 @@
+[
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Column4",
+    "columnName": "Column4"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Column 5",
+    "columnName": "Column 5"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Column3",
+    "columnName": "Column3"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Column",
+    "columnName": "Column"
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Column2",
+          "expression": "value",
+          "columnName": "Column2",
+          "invert": false,
+          "selection": [],
+          "selectNumber": false,
+          "selectDateTime": false,
+          "selectBoolean": false,
+          "omitBlank": false,
+          "selectBlank": true,
+          "omitError": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    }
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Column 6",
+          "expression": "value",
+          "columnName": "Column 6",
+          "invert": false,
+          "selection": [
+            {
+              "v": {
+                "v": "  ",
+                "l": "  "
+              }
+            }
+          ],
+          "selectNumber": false,
+          "selectDateTime": false,
+          "selectBoolean": false,
+          "omitBlank": false,
+          "selectBlank": false,
+          "omitError": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    }
+  },
+    {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Column 6",
+          "expression": "value",
+          "columnName": "Column 6",
+          "invert": false,
+          "selection": [
+            {
+              "v": {
+                "v": " ",
+                "l": " "
+              }
+            }
+          ],
+          "selectNumber": false,
+          "selectDateTime": false,
+          "selectBoolean": false,
+          "omitBlank": false,
+          "selectBlank": false,
+          "omitError": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    }
+  },
+    {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Column 6",
+          "expression": "value",
+          "columnName": "Column 6",
+          "invert": false,
+          "selection": [],
+          "selectNumber": false,
+          "selectDateTime": false,
+          "selectBoolean": false,
+          "omitBlank": false,
+          "selectBlank": true,
+          "omitError": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    }
+  }
+
+
+]
+
