@@ -35,7 +35,11 @@ use quickRdf\DataFactory as DF;
 use quickRdf\RdfNamespace;
 use zozlak\RdfConstants as RDF;
 
-include __DIR__ . '/vendor/autoload.php';
+$dir = __DIR__;
+while (!file_exists("$dir/vendor/autoload.php") && $dir !== '/') {
+    $dir = dirname($dir);
+}
+include "$dir/vendor/autoload.php";
 
 if ($argc < 5) {
     echo "usage: php -f $argv[0] mappingFile.csv metaFile.xml output.trig acdhIdUriOfCollection\n";
