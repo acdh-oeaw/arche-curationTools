@@ -11,10 +11,12 @@ fi
 echo "Processing directory `pwd`"
 for F in `ls -1 | grep -i -E 'tiff?$'` ; do
     gdalinfo "$F" | grep -q 'COMPRESSION=LZW'
-    if [ "$?" != "0" ] ; then
+    FLAG_NC="$?"
+    FLAG_T=`gdalinfo "$F" | grep -E 'Block=[0-9]+x1 ' | wc -l`
+    if [ "$FLAG_NC" != "0" ] || [ "$FLAG_T" != "0" ] ; then
         echo "  Compressing $F"
         FTMP="__tmp__$F"
-        gdal_translate -co "COMPRESS=LZW" -co "PREDICTOR=2" "$F" "$FTMP" 2>&1 > /dev/null &&\
+        gdal_translate -co "COMPRESS=LZW" -co "PREDICTOR=2" -co "TILED=YES" "$F" "$FTMP" 2>&1 > /dev/null &&\
         exiftool -m -overwrite_original_in_place -tagsFromFile "$F" "$FTMP" 2>&1 > /dev/null &&\
         mv "$FTMP" "$F"
         if [ "$?" != "0" ] ; then
