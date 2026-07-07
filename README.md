@@ -46,6 +46,7 @@ Detailed description of scripts is provided below.
 
 * `ssh.sh` - connects to the arche-ingestion cluster environment where all othere scripts can be run
 * `tif_lzw.sh` - assures TIF images are LZW-compressed
+* `to_glb.sh ` - converts 3D models to the GLB format
 * `goobi_mets_extract.php` - extracts metadata from a Goobi METS/MODS metadata export provided by the Pfaﬀenberg Archiv
 * scripts without CLI interface (you might need to adjust their code to make them do what you want):
   * `chopttl.py` - splits a large ttl file into smaller chunks of a maximum amout of lines
@@ -53,6 +54,8 @@ Detailed description of scripts is provided below.
   * `generateFolders.py` - creates folders for grouping files with similar names together
   * `renameFiles.py` - renames files so that they follow ARCHE file naming requirements
 * other
+  `blender_glb_convert.py` - Python script using Blender's API to convert a 3D model to the GLB
+   used internally by the `to_glb.sh` script
   `openrefine/*` - some openrefine recipes - ask Martina
 
 Deprecated scripts/data:
@@ -85,6 +88,29 @@ Usage on the cluster:
 
 Local usage - if you are a hacker, you will figure it out based on the instructions above. If not, do not run it locally.
 (hint - you need gdal and exiftool binaries installed and in your PATH)
+
+### to_glb.sh
+
+Converts 3D models to the GLB format.
+
+Usage on the cluster:
+
+* Login to the arche-ingestion environment on the cluster (see [here](https://github.com/acdh-oeaw/arche-ingest/blob/master/docs/acdh-cluster.md)).
+* Run `screen -S myCompressionSessionName`
+* Run
+  ```bash
+  find directoryToProcess -type f -name '*extensionToProcess' -exec bash /ARCHE/curationTools/to_glb.sh {} \;
+  ```
+  Adjust the `find` command as needed to find all the files you want to process.
+
+
+Local usage - if you are a hacker, you will figure it out based on the instructions above. If not, do not run it locally.
+(hint - you need Blender installed and in your PATH)
+
+The script doesn't remove the original files. If you know, what you are doing, you can then remove them with:
+```bash
+find directoryToProcess -type f -name '*extensionToProcess' -exec rm {} \;
+```
 
 ### goobi_mets_extract.php
 
