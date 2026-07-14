@@ -45,9 +45,11 @@ try {
         $pathTo = substr($pathFrom, $srcDirLen);
         if (!empty($args->match) && !preg_match('`' . $args->match . '`', $pathTo)) {
             $log->info("Skipping $pathFrom - doesn't match the --match parameter");
+            continue;
         }
         if (!empty($args->skip) && preg_match('`' . $args->skip . '`', $pathTo)) {
             $log->info("Skipping $pathFrom - matches the --skip parameter");
+            continue;
         }
         $log->info("Adding $pathFrom as $pathTo");
         $bag->addFile($pathFrom, $pathTo);
