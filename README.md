@@ -47,6 +47,7 @@ Detailed description of scripts is provided below.
 * `ssh.sh` - connects to the arche-ingestion cluster environment where all othere scripts can be run
 * `tif_lzw.sh` - assures TIF images are LZW-compressed
 * `to_glb.sh ` - converts 3D models to the GLB format
+* `bagit.php` - creates bagit archives
 * `goobi_mets_extract.php` - extracts metadata from a Goobi METS/MODS metadata export provided by the Pfaﬀenberg Archiv
 * scripts without CLI interface (you might need to adjust their code to make them do what you want):
   * `chopttl.py` - splits a large ttl file into smaller chunks of a maximum amout of lines
@@ -111,6 +112,30 @@ The script doesn't remove the original files. If you know, what you are doing, y
 ```bash
 find directoryToProcess -type f -name '*extensionToProcess' -exec rm {} \;
 ```
+
+### bagit.php
+
+Creates bagit archives.
+
+Usage on the cluster:
+* Run `/ARCHE/curationTools/bagit.php targetBagPath.zip sourceDirPath`, e.g.
+  ```bash
+  /ARCHE/curationTools/bagit.php \
+    /ARCHE/staging/EtMirA_23824/data/objects/KHM-ANSA-VI-1011/SL/source.zip \
+    /ARCHE/staging/EtMirA_23824/data/objects/KHM-ANSA-VI-1011/SL
+  ```
+  * if you want files matching a given regex pattern to be included/excluded, use the `--match`/`--skip` parameters, e.g.
+    ```
+    /ARCHE/curationTools/bagit.php \
+      /ARCHE/staging/EtMirA_23824/data/objects/KHM-ANSA-VI-1011/SL/source.zip \
+      /ARCHE/staging/EtMirA_23824/data/objects/KHM-ANSA-VI-1011/SL \
+      --skip 'glb$'
+    ```
+
+Local usage:
+
+* Make sure you have a runtime environment: php and composer. Then run `composer update --no-dev`.
+* Run `./bagit.php targetBagPath.zip sourceDirPath`
 
 ### goobi_mets_extract.php
 

@@ -1,6 +1,9 @@
 {
     "require": {
         "sweetrdf/quick-rdf-io": "^1.3",
-        "sweetrdf/quick-rdf": "^2.0"
+        "sweetrdf/quick-rdf": "^2.0",
+        "whikloj/bagittools": "^6.0",
+        "zozlak/argparse": "^1.0",
+        "zozlak/logging": "^1.2"
     }
 }
